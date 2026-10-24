@@ -17,12 +17,11 @@ Then open http://localhost:8080. Opening `index.html` directly from disk also wo
 1. **Hero:** a full-screen stage with six chapters on the left rail (DIVA, PLASMA, INSIDE, HARVEST, FIELD, ORIGIN). Each chapter moves the camera over the drum, which is drawn in the page, and swaps the headline and paragraph.
 2. **About Diva**
 3. **Inside the drum:** scrolling takes the drum apart and labels every part.
-4. **How it works:** collect, treat, return, with the harvester drawing.
-5. **Benefits**
-6. **Why it matters:** the burning problem in numbers.
-7. **Team**
-8. **Field partners**
-9. **Contact**
+4. **How it works:** collect, treat, return, with the harvester drawing, and what Diva does in the field.
+5. **Why it matters:** the burning problem in numbers.
+6. **Team**
+7. **Field partners**
+8. **Contact**
 
 A sticky bar appears once the hero has scrolled away. The MENU button opens a panel with every section.
 

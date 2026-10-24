@@ -49,6 +49,13 @@ body{
           filter:invert(1) hue-rotate(180deg) brightness(.92);mix-blend-mode:screen;opacity:0;
           transition:opacity .9s ease}
 .bg[data-scene="harvest"] .harv{opacity:.88}
+/* the product name, outlined and very large, behind the drum */
+.bg .mark{position:absolute;left:0;right:0;top:37%;transform:translateY(-50%);text-align:center;
+  font-family:'Chakra S','Inter S',sans-serif;font-weight:700;font-size:calc(340*var(--u));line-height:1;
+  letter-spacing:.14em;padding-left:.14em;color:rgba(232,238,250,.035);
+  -webkit-text-stroke:calc(1.2*var(--u)) rgba(232,238,250,.16);
+  pointer-events:none;user-select:none;transition:opacity .9s ease}
+.bg[data-scene="harvest"] .mark{opacity:0}
 .bg[data-scene="harvest"] #cam{opacity:0}
 .plbl{opacity:0;transition:opacity .45s ease}
 .labels-on .plbl{opacity:1}
@@ -414,6 +421,11 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
   border-bottom:1px solid rgba(255,255,255,.08);
   transform:translateY(-100%);visibility:hidden;transition:transform .45s var(--e-mask),visibility .45s}
 .topbar.show{transform:none;visibility:visible}
+/* the benefits, now part of Process, on its light ground */
+.how .gains-title{margin:72px 0 0;font-family:'Chakra S','Inter S',sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.how .gains{margin-top:24px}
+.how .feat{border-top-color:var(--rule)}
+.how .feat p{color:var(--ink-2)}
 /* sections that had the website's white page behind them carry it themselves here */
 .about-intro,.how,.team{background:var(--paper);color:var(--ink)}
 .topbar .word{font-family:'Chakra S','Inter S',sans-serif;font-weight:700;font-size:17px;letter-spacing:.18em;color:#fff;text-decoration:none}
@@ -429,11 +441,12 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
 <body>
 <header class="topbar" id="topbar" aria-label="Site">
   <a class="word" href="#">SATARK</a>
-  <nav aria-label="Sections"><a href="#about">ABOUT</a><a href="#inside">INSIDE</a><a href="#how">PROCESS</a><a href="#benefits">BENEFITS</a><a href="#team">TEAM</a><a href="#contact">CONTACT</a></nav>
+  <nav aria-label="Sections"><a href="#about">ABOUT</a><a href="#inside">INSIDE</a><a href="#how">PROCESS</a><a href="#team">TEAM</a><a href="#contact">CONTACT</a></nav>
   <a class="demo" href="mailto:reezaalarafat@gmail.com?subject=Diva%20field%20demo">REQUEST A DEMO</a>
 </header>
 <div class="stage">
   <div class="bg no-trans" data-scene="diva" role="img" aria-label="The Diva cold plasma drum, a stainless steel cylinder with glowing electrode tubes behind a curved window">
+    <div class="mark" aria-hidden="true">DIVA</div>
     <svg viewBox="0 0 2400 1350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g id="cam"></g></svg>
     <img class="harv" src="assets/img/harvester.webp" alt="">
   </div>
@@ -463,7 +476,7 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
         <span class="t">MENU</span>
       </button>
       <div class="menupanel lbl" id="menupanel">
-        <a href="#about"><span class="t">ABOUT DIVA</span></a><a href="#inside"><span class="t">INSIDE THE DRUM</span></a><a href="#how"><span class="t">HOW IT WORKS</span></a><a href="#benefits"><span class="t">BENEFITS</span></a><a href="#why"><span class="t">WHY IT MATTERS</span></a><a href="#team"><span class="t">TEAM</span></a><a href="#contact"><span class="t">CONTACT</span></a>
+        <a href="#about"><span class="t">ABOUT DIVA</span></a><a href="#inside"><span class="t">INSIDE THE DRUM</span></a><a href="#how"><span class="t">HOW IT WORKS</span></a><a href="#why"><span class="t">WHY IT MATTERS</span></a><a href="#team"><span class="t">TEAM</span></a><a href="#contact"><span class="t">CONTACT</span></a>
       </div>
     </nav>
 
@@ -575,42 +588,33 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
       <div><span class="k">Treat</span><h3>Cold plasma, driven by the harvester</h3><p>A belt from the harvester turns the drum while the electrode tubes treat the straw.</p></div>
       <div><span class="k">Return</span><h3>Back on the field, not burned</h3><p>Treated straw is spread behind the machine instead of being set alight.</p></div>
     </div>
-  </div>
-</section>
-
-<section class="benefits" id="benefits">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow">Benefits</span>
-      <h2>What Diva does in the field.</h2>
-    </div>
-    <div class="grid">
+    <h3 class="gains-title reveal">What Diva does in the field</h3>
+    <div class="grid gains">
       <div class="feat reveal">
-        <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15.5" fill="none" stroke="#F7F5EF" stroke-width="1.6" stroke-dasharray="1.6 3.2" stroke-linecap="round"/><path d="M19 6 10.5 19h6l-1.5 9L23.5 15h-6z" fill="#F7F5EF"/></svg>
+        <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15.5" fill="none" stroke="#141516" stroke-width="1.6" stroke-dasharray="1.6 3.2" stroke-linecap="round"/><path d="M19 6 10.5 19h6l-1.5 9L23.5 15h-6z" fill="#141516"/></svg>
         <h3>Cold plasma, no flame</h3>
         <p>High voltage across glass barriers creates a cold plasma. No fire, no smoke and no open flame in the field.</p>
       </div>
       <div class="feat reveal">
-        <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="7" width="30" height="20" rx="4" fill="none" stroke="#F7F5EF" stroke-width="2.2"/><path d="M7 12.5h20M7 17h20M7 21.5h20" stroke="#F7F5EF" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="2" y="7" width="30" height="20" rx="4" fill="none" stroke="#141516" stroke-width="2.2"/><path d="M7 12.5h20M7 17h20M7 21.5h20" stroke="#141516" stroke-width="2.2" stroke-linecap="round"/></svg>
         <h3>Treats straw as you harvest</h3>
         <p>The drum mounts at the back of the combine, so straw is treated in the same pass that cuts the crop.</p>
       </div>
       <div class="feat reveal">
-        <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15.5" fill="none" stroke="#F7F5EF" stroke-width="1.6" stroke-dasharray="1.6 3.2" stroke-linecap="round"/><circle cx="17" cy="17" r="10" fill="#F7F5EF"/><path d="m12.5 17.2 3 3 6-6.2" fill="none" stroke="#0c1013" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15.5" fill="none" stroke="#141516" stroke-width="1.6" stroke-dasharray="1.6 3.2" stroke-linecap="round"/><circle cx="17" cy="17" r="10" fill="#141516"/><path d="m12.5 17.2 3 3 6-6.2" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Built for field conditions</h3>
         <p>A stainless steel housing and a sealed power connector are designed for dust, chaff and long harvest days.</p>
       </div>
       <div class="feat reveal">
-        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V9M17 13c-3-1-5-4-5-7 3 1 5 4 5 7zm0 0c3-1 5-4 5-7-3 1-5 4-5 7zm0 7c-3-1-5-4-5-7 3 1 5 4 5 7zm0 0c3-1 5-4 5-7-3 1-5 4-5 7zm0 7c-3-1-5-4-5-7 3 1 5 4 5 7zm0 0c3-1 5-4 5-7-3 1-5 4-5 7z" fill="#F7F5EF" stroke="#F7F5EF" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V9M17 13c-3-1-5-4-5-7 3 1 5 4 5 7zm0 0c3-1 5-4 5-7-3 1-5 4-5 7zm0 7c-3-1-5-4-5-7 3 1 5 4 5 7zm0 0c3-1 5-4 5-7-3 1-5 4-5 7zm0 7c-3-1-5-4-5-7 3 1 5 4 5 7zm0 0c3-1 5-4 5-7-3 1-5 4-5 7z" fill="#141516" stroke="#141516" stroke-width="1.6" stroke-linejoin="round"/></svg>
         <h3>Straw stays on the field</h3>
         <p>Treated straw is spread back across the field instead of being burned, so there is nothing left to light.</p>
       </div>
       <div class="feat reveal">
-        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M8 16 17 7l9 9M8 27l9-9 9 9" fill="none" stroke="#F7F5EF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M8 16 17 7l9 9M8 27l9-9 9 9" fill="none" stroke="#141516" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Cleaner air for the region</h3>
         <p>Every field that is not burned means less smoke trapped over the plain through the winter months.</p>
       </div>
-    </div>
   </div>
 </section>
 
@@ -810,10 +814,15 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
   const X0 = 760, X1 = 1780, TR = 168, CR = 222;
   cylinder(X0, X1, AY, CR, "rgba(60,66,72,.10)", "rgba(0,0,0,0)", asm);
   const tubes = [];
+  // a band of light that runs along the front tubes, so the plasma reads as live
+  const flow = el("linearGradient", { id: "flow", gradientUnits: "userSpaceOnUse", x1: 0, y1: 0, x2: 340, y2: 0, spreadMethod: "repeat" }, defs);
+  [[0, 0], [.42, 0], [.5, .6], [.58, 0], [1, 0]].forEach(([o, a]) => el("stop", { offset: o, "stop-color": "#ffffff", "stop-opacity": a }, flow));
+  el("animateTransform", { attributeName: "gradientTransform", type: "translate", from: "0 0", to: "340 0", dur: "1.4s", repeatCount: "indefinite" }, flow);
   for (let i = 0; i < 9; i++) { const t = (i / 9) * Math.PI * 2 + 0.35; tubes.push({ y: AY + TR * Math.sin(t), dx: K * TR * Math.cos(t), front: Math.cos(t) > 0 }); }
   function tube(o, back) {
     const g = el("g", back ? { opacity: .55 } : { filter: "url(#glow)", class: "glowt" }, asm);
     el("rect", { x: X0 + o.dx, y: o.y - 15, width: X1 - X0, height: 30, rx: 15, fill: back ? "url(#tubeBack)" : "url(#tube)" }, g);
+    if (!back) el("rect", { x: X0 + o.dx, y: o.y - 15, width: X1 - X0, height: 30, rx: 15, fill: "url(#flow)" }, g);
     el("ellipse", { cx: X1 + o.dx + 4, cy: o.y, rx: 10, ry: 17, fill: "#f2f2ef", stroke: "#b9bcbf" }, g);
   }
   tubes.filter(o => !o.front).forEach(o => tube(o, true));
@@ -857,7 +866,7 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
     [70, 1012, 60, 1160, "Power cable", true], [238, 880, 80, 760, "Sealed cable gland"], [345, 840, 300, 640, "Hub plate"],
     [430, 655, 330, 560, "End cap with drive gear ring"], [650, 680, 640, 1240, "Front flange", true],
     [1100, AY - TR * 0.98, 1130, 640, "Plasma electrode tubes"], [1500, AY + 4, 1560, 640, "Central shaft"],
-    [1250, AY + 160, 1180, 1240, "Straw passes between the tubes", true], [1792, AY - 120, 1820, 1240, "Tube end sockets", true],
+    [1250, AY + 188, 1180, 1240, "Straw passes between the tubes", true], [1792, AY - 120, 1820, 1240, "Tube end sockets", true],
     [1930, 700, 2000, 560, "Rear flange"], [1700, HY - 200, 1880, 120, "Stainless steel housing"],
   ];
   const labelEls = partLabels.map(([px, py, lx, ly, str, below]) => {
@@ -916,6 +925,7 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
   }
   setExplode(0);
   frameScene('diva');
+  if (RM) [].forEach.call(document.querySelectorAll('.bg svg, #drum'), function(v){ v.pauseAnimations(); });
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ bg.classList.remove('no-trans'); }); });
 
   /* ---------------------------------------------------------------
@@ -955,6 +965,7 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
     motion.classList.toggle('muted', on);
     still = on;
     s.classList.toggle('still', on);
+    [].forEach.call(document.querySelectorAll('.bg svg, #drum'), function(v){ v[on ? 'pauseAnimations' : 'unpauseAnimations'](); });
     if (on){ tx = 0; ty = 0; wake(); }
     var t = motion.querySelector('.t');
     t.dataset.text = on ? 'MOTION OFF' : 'MOTION ON';
@@ -1161,10 +1172,15 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
   const X0 = 760, X1 = 1780, TR = 168, CR = 222;
   cylinder(X0, X1, AY, CR, "rgba(60,66,72,.10)", "rgba(0,0,0,0)", asm);
   const tubes = [];
+  // a band of light that runs along the front tubes, so the plasma reads as live
+  const flow = el("linearGradient", { id: "flow", gradientUnits: "userSpaceOnUse", x1: 0, y1: 0, x2: 340, y2: 0, spreadMethod: "repeat" }, defs);
+  [[0, 0], [.42, 0], [.5, .6], [.58, 0], [1, 0]].forEach(([o, a]) => el("stop", { offset: o, "stop-color": "#ffffff", "stop-opacity": a }, flow));
+  el("animateTransform", { attributeName: "gradientTransform", type: "translate", from: "0 0", to: "340 0", dur: "1.4s", repeatCount: "indefinite" }, flow);
   for (let i = 0; i < 9; i++) { const t = (i / 9) * Math.PI * 2 + 0.35; tubes.push({ y: AY + TR * Math.sin(t), dx: K * TR * Math.cos(t), front: Math.cos(t) > 0 }); }
   function tube(o, back) {
     const g = el("g", back ? { opacity: .55 } : { filter: "url(#glow)" }, asm);
     el("rect", { x: X0 + o.dx, y: o.y - 15, width: X1 - X0, height: 30, rx: 15, fill: back ? "url(#tubeBack)" : "url(#tube)" }, g);
+    if (!back) el("rect", { x: X0 + o.dx, y: o.y - 15, width: X1 - X0, height: 30, rx: 15, fill: "url(#flow)" }, g);
     el("ellipse", { cx: X1 + o.dx + 4, cy: o.y, rx: 10, ry: 17, fill: "#f2f2ef", stroke: "#b9bcbf" }, g);
   }
   tubes.filter(o => !o.front).forEach(o => tube(o, true));
@@ -1208,7 +1224,7 @@ footer b { color: var(--cream2); font-family: var(--display); letter-spacing: .1
     [70, 1012, 60, 1160, "Power cable", true], [238, 880, 80, 760, "Sealed cable gland"], [345, 840, 300, 640, "Hub plate"],
     [430, 655, 330, 560, "End cap with drive gear ring"], [650, 680, 640, 1240, "Front flange", true],
     [1100, AY - TR * 0.98, 1130, 640, "Plasma electrode tubes"], [1500, AY + 4, 1560, 640, "Central shaft"],
-    [1250, AY + 160, 1180, 1240, "Straw passes between the tubes", true], [1792, AY - 120, 1820, 1240, "Tube end sockets", true],
+    [1250, AY + 188, 1180, 1240, "Straw passes between the tubes", true], [1792, AY - 120, 1820, 1240, "Tube end sockets", true],
     [1930, 700, 2000, 560, "Rear flange"], [1700, HY - 200, 1880, 120, "Stainless steel housing"],
   ];
   const labelEls = labels.map(([px, py, lx, ly, str, below]) => {
