@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}html,body{background:#0A0E18}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;color:#B4BBCC}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Journey · SATARK</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The SATARK timeline from the first FTOH seminars to the DIVA prototype, plus the archived first site, Page 0.">
+<meta name="theme-color" content="#0A0E18">
+<link rel="icon" href="img/satark-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/satark.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="SATARK home"><img src="img/satark-logo.svg" alt="SATARK" width="95" height="27"></a>
+    <nav aria-label="Main"><ul class="nav-links"><li><a href="system.html">System</a></li><li><a href="diva.html">DIVA</a></li><li><a href="field.html">Field</a></li><li><a href="impact.html">Impact</a></li><li><a href="research.html">Research</a></li><li><a href="journey.html" aria-current="page">Journey</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+    <div class="nav-tools">
+      <button class="present-btn" type="button" aria-pressed="false" title="Full screen. Move between chapters with the arrow keys or a presentation clicker."><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="9" rx="1"/><path d="M8 11.5v2.5M5 14h6"/><path d="M6.6 5.1v3.8L9.9 7z" fill="currentColor" stroke="none"/></svg><span>Present</span></button>
+      <a class="btn sm nav-cta" href="contact.html#demo">Request a demo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <ol><li><a href="index.html">Home<span>Overview</span></a></li><li><a href="system.html">System<span>Orbit to Guardian</span></a></li><li><a href="diva.html">DIVA<span>Cold plasma unit</span></a></li><li><a href="field.html">Field<span>Kolaghat pilot</span></a></li><li><a href="impact.html">Impact<span>Market and payback</span></a></li><li><a href="research.html">Research<span>Proof and papers</span></a></li><li><a href="journey.html" aria-current="page">Journey<span>2022 to now</span></a></li><li><a href="team.html">Team<span>Who builds it</span></a></li><li><a href="contact.html">Contact<span>Demo and join</span></a></li></ol>
+  <div class="foot"><span>KOLAGHAT BLOCK · PURBA MEDINIPUR · WEST BENGAL</span><span>team@satark.co.in</span></div>
+</div>
+<main id="main" data-page="journey">
+<style>
+.tl { position: relative; margin-top: 12px; }
+.tl::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--rule-n2); transform: translateX(-.5px); }
+.tl .fill { position: absolute; left: 50%; top: 0; width: 3px; height: 100%; transform: translateX(-1.5px) scaleY(var(--tp, 0)); transform-origin: 50% 0; background: linear-gradient(180deg, var(--straw), var(--ember) 70%, var(--plasma)); box-shadow: 0 0 18px rgba(226, 183, 85, .5); }
+.ev { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 88px; padding: 22px 0; }
+.ev .when { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--straw); text-align: right; padding-top: 22px; }
+.ev .box { position: relative; padding: 20px 22px; border: 1px solid var(--rule-n2); border-radius: 4px; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); }
+.ev .box h3 { color: var(--cream); font-size: 21px; font-weight: 750; margin-bottom: 8px; }
+.ev .box p { font-size: 15.5px; }
+.ev::after { content: ""; position: absolute; left: 50%; top: 42px; width: 13px; height: 13px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--night); border: 2px solid var(--straw); transition: background .4s, box-shadow .4s; }
+.ev.lit::after { background: var(--straw); box-shadow: 0 0 0 6px rgba(226, 183, 85, .16); }
+.ev.flip .when { order: 2; text-align: left; }
+.ev.flip .box { order: 1; }
+.ev.key .box { border-color: rgba(226, 183, 85, .5); }
+.ev.plasma .box { border-color: rgba(156, 136, 255, .5); }
+.ev.plasma::after { border-color: var(--plasma); } .ev.plasma.lit::after { background: var(--plasma); box-shadow: 0 0 0 6px rgba(156, 136, 255, .18); }
+.ev.next .box { border-style: dashed; }
+.year { position: relative; text-align: center; padding: 30px 0 10px; }
+.year span { position: relative; display: inline-block; padding: 6px 14px; background: var(--night); font-family: var(--display); font-stretch: 125%; font-weight: 900; font-size: clamp(38px, 5vw, 66px); color: var(--cream); line-height: 1; }
+.now-marker { position: relative; text-align: center; padding: 16px 0; }
+.now-marker span { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--ember); background: var(--night); color: var(--ember); font-family: var(--mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; }
+.now-marker span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: blink 1.2s infinite; }
+@media (max-width: 820px) {
+  .tl::before, .tl .fill { left: 14px; }
+  .ev { grid-template-columns: 1fr; gap: 8px; padding: 16px 0 16px 44px; }
+  .ev .when, .ev.flip .when { order: 0; text-align: left; padding-top: 0; }
+  .ev.flip .box { order: 1; }
+  .ev::after { left: 14px; top: 8px; }
+  .year, .now-marker { text-align: left; }
+}
+
+.browser { border: 1px solid var(--rule-p); border-radius: 8px; overflow: hidden; background: #0B1220; box-shadow: 0 50px 90px -40px rgba(14, 19, 34, .6); transform: perspective(1800px) rotateX(10deg); transform-origin: 50% 100%; transition: transform .9s var(--ease); }
+.browser:hover { transform: none; }
+.browser .bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #E3E1DC; border-bottom: 1px solid var(--rule-p); }
+.browser .bar i { width: 10px; height: 10px; border-radius: 50%; background: #C9C5BC; }
+.browser .bar span { flex: 1; margin-left: 10px; padding: 5px 12px; border-radius: 4px; background: #F4F3F0; font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+.browser .page { padding: clamp(28px, 5vw, 56px); background: radial-gradient(600px 300px at 80% 0%, #1B2547, #0B1220 70%); color: #C9CEDB; }
+.browser .page .eb { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; color: #E2B755; text-transform: uppercase; }
+.browser .page h3 { font-family: "Archivo", sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(40px, 7vw, 88px); line-height: .9; color: #F3F1EA; text-transform: uppercase; margin: 14px 0 12px; }
+.browser .page p { font-size: 15.5px; max-width: 40em; }
+.browser .stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(174,181,199,.2); }
+.browser .stats b { display: block; font-family: "Archivo", sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(22px, 3vw, 34px); color: #E2B755; }
+.browser .stats span { font-size: 12.5px; }
+@media (max-width: 640px) { .browser .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.family { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); }
+.family .card h3 { font-family: var(--display); font-stretch: 125%; font-weight: 900; font-size: 26px; letter-spacing: .02em; }
+@media (max-width: 960px) { .family { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .family { grid-template-columns: 1fr; } }
+</style>
+
+<section class="page-hero night" data-chapter="Journey" data-flush>
+  <div class="grid-lines"></div>
+  <div class="wrap">
+    <p class="crumb rise"><b>Journey</b><span>·</span><span>2022 to now</span></p>
+    <h1 class="hero-title rise d1" style="max-width:11em">From a village seminar to a plasma drum.</h1>
+    <p class="lead rise d2">SATARK grew out of FTOH, a youth-led climate collective in Purba Medinipur. It started as a question about satellites and fire. It became a system, a mandate and a machine.</p>
+    <div class="hero-meta rise d3"><span>Founded <b>FTOH · 2022</b></span><span>SATARK <b>2025</b></span><span>DIVA <b>2026</b></span></div>
+  </div>
+</section>
+
+<section class="band night" style="padding-top:0" data-chapter="Timeline">
+  <div class="wrap">
+    <div class="tl" id="tl">
+      <div class="fill"></div>
+      <div class="year"><span>2022</span></div>
+      <div class="ev"><div class="when">The start</div><div class="box tilt" data-tilt="4"><h3>FTOH is founded</h3><p>Sk Reezaal Arafat starts building climate and technology projects and founds FTOH, For The Only Home, as a youth-led climate collective.</p></div></div>
+      <div class="ev flip"><div class="when">Early years</div><div class="box tilt" data-tilt="4"><h3>CLI'MATE' seminars</h3><p>Community seminars on climate in the villages. The conversations with farmers that would later shape SATARK start here.</p></div></div>
+      <div class="year"><span>2025</span></div>
+      <div class="ev key"><div class="when">2025</div><div class="box tilt" data-tilt="4"><h3>SATARK begins</h3><p>A question about satellites becomes a system: can a crop fire be stopped before the match is lit, without fining the farmer?</p></div></div>
+      <div class="ev flip"><div class="when">2025 to 2026</div><div class="box tilt" data-tilt="4"><h3>The trust audit</h3><p>34 farming households surveyed. None knew a subsidised machinery centre was nearby. The Positive Deviance and Trust Gap Study is written.</p></div></div>
+      <div class="ev"><div class="when">2025 to 2026</div><div class="box tilt" data-tilt="4"><h3>Research goes public</h3><p>Field data on Harvard Dataverse, two SSRN preprints and a Zenodo archive. The AI model is trained on 32,000+ wildfire images and adapted for Bengal.</p></div></div>
+      <div class="year"><span>2026</span></div>
+      <div class="ev flip"><div class="when">13 Jan 2026</div><div class="box tilt" data-tilt="4"><h3>Letter of interest from BDO Kolaghat</h3><p>The block says it will observe the pilot in the harvest season and use the live data to send balers where they are needed.</p></div></div>
+      <div class="ev"><div class="when">13 Feb 2026</div><div class="box tilt" data-tilt="4"><h3>Technical validation from ADA Egra</h3><p>The ground sensor method is found “technically sound and practically viable”, and one pilot unit is authorized in Egra Sub-division.</p></div></div>
+      <div class="ev flip"><div class="when">23 Feb 2026</div><div class="box tilt" data-tilt="4"><h3>"Kaha se B.Tech kiya ho?"</h3><p>An IAS officer in Egra asks Reezaal where he graduated from. He hadn't. He was in Class 10, with a working system and a field team behind him.</p></div></div>
+      <div class="ev key"><div class="when">26 Feb 2026</div><div class="box tilt" data-tilt="4"><h3>Phase-2 authorization from BDO Kolaghat</h3><p>A 50-node grid on Gram Panchayat offices and flood shelters, a Student Technical Team in Atal Tinkering Lab schools, zero cost to the block. The first SATARK website, Page 0, goes live the same day.</p></div></div>
+      <div class="ev key flip"><div class="when">20 Mar 2026</div><div class="box tilt" data-tilt="4"><h3>OSHWA certification</h3><p>SATARK hardware is certified open source as IN000084, under CERN-OHL-S-2.0 and GPL-3.0-or-later.</p></div></div>
+      <div class="ev plasma"><div class="when">July 2026</div><div class="box tilt" data-tilt="4"><h3>DIVA is born</h3><p>The missing piece: a way to remove the reason to burn. A cold plasma unit cell is designed to crack the waxy skin of rice straw.</p></div></div>
+      <div class="ev plasma flip"><div class="when">August 2026</div><div class="box tilt" data-tilt="4"><h3>The wafer works. The chamber is drawn.</h3><p>The bench unit is built, wired and powered in Gurchakli, and the discharge is confirmed. The spoke wheel is dropped for a 500 mm chamber with ten fixed axial electrodes.</p></div></div>
+      <div class="ev plasma"><div class="when">September 2026</div><div class="box tilt" data-tilt="4"><h3>The model and the fix</h3><p>A two-pool decay model fitted to 19 published measurements (R² = 0.84). An insulation flaw in the electrode stack is found and resolved.</p></div></div>
+      <div class="ev key flip"><div class="when">19 Sep 2026</div><div class="box tilt" data-tilt="4"><h3>Emergent Ventures India, 19th cohort</h3><p>Tyler Cowen names Project SATARK in the cohort announcement on Marginal Revolution: “a decentralized agricultural fire-interception grid”.</p><a class="textlink" href="https://marginalrevolution.com/marginalrevolution/2026/09/emergent-ventures-india-19th-cohort.html" target="_blank" rel="noopener" style="margin-top:10px;display:inline-block">Read the post</a></div></div>
+      <div class="ev key" id="press"><div class="when">12 Oct 2026</div><div class="box tilt" data-tilt="4"><h3>Featured by The Better India</h3><p>A Young Achievers feature on Reezaal and SATARK, written by Nishtha Kawrani, later republished by DailyGood.</p><a class="textlink" href="https://thebetterindia.com/young-achievers/reezaal-arafat-satark-stubble-burning-solution-west-bengal-student-climate-tech-12669409" target="_blank" rel="noopener" style="margin-top:10px;display:inline-block">Read the feature</a></div></div>
+      <div class="now-marker"><span>Now · October 2026</span></div>
+      <div class="ev next flip"><div class="when">20 to 21 Nov 2026</div><div class="box tilt" data-tilt="4"><h3>LPU Bharat Innovation Challenge</h3><p>The DIVA prototype, the app and the pitch go to Punjab, in the heart of India's stubble burning belt.</p></div></div>
+      <div class="ev next"><div class="when">Winter 2026 target</div><div class="box tilt" data-tilt="4"><h3>Phase 3, full scale</h3><p>Expansion across the Indo-Gangetic Plain, ISRO Bhuvan integration, Trust Cards as a subsidy metric, and an open-source release for the Mekong Delta.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band paper" id="page0" data-chapter="Page 0">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><p class="label">The archive</p><h2 class="h2">Page 0, the first SATARK site.</h2></div>
+      <p class="lead reveal r2">Launched in February 2026, before DIVA existed. It described the detection system, the Guardian network and the Phase-2 mandate. It stays online as a record of where this started.</p>
+    </div>
+    <div class="browser reveal">
+      <div class="bar"><i></i><i></i><i></i><span>page0.satark.co.in</span></div>
+      <div class="page">
+        <span class="eb">● Phase-2 pilot authorized</span>
+        <h3>From orbit to action.</h3>
+        <p>SATARK detects crop fire anomalies from satellite data, upscales them with AI, and dispatches a field Guardian within about 30 minutes, to help farmers rather than police them.</p>
+        <div class="stats"><div><b>30 min</b><span>Orbit to intervention</span></div><div><b>200×</b><span>AI upscaling</span></div><div><b>10K+</b><span>Families protected</span></div><div><b>30+</b><span>Student Guardians</span></div><div><b>6</b><span>Global advisors</span></div></div>
+      </div>
+    </div>
+    <div class="btn-row reveal" style="margin-top:28px"><a class="btn ink" href="https://page0.satark.co.in" target="_blank" rel="noopener">Visit Page 0 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13"/></svg></a></div>
+  </div>
+</section>
+
+<section class="band night" data-chapter="FTOH">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><p class="label">The FTOH family</p><h2 class="h2">SATARK is not the only thing we build.</h2></div>
+      <p class="lead reveal r2">FTOH builds early warning and sensing for places too small to be anyone's business case. The projects share people, hardware and a way of working.</p>
+    </div>
+    <div class="family">
+      <div class="card tilt reveal"><p class="label plain">Mobile sensing</p><h3 style="margin-top:12px">PATHIK</h3><p>ESP32 and BME680 sensors on Field Guardians' motorcycles log heat stress and particulate matter across rural Bengal as they ride.</p></div>
+      <div class="card tilt reveal r2"><p class="label plain">Heat</p><h3 style="margin-top:12px">HEATWATCH</h3><p>Wet-bulb heat stress mapping to find extreme heat zones and route gig workers around them.</p></div>
+      <div class="card tilt reveal r3"><p class="label plain">Floods</p><h3 style="margin-top:12px">PRABAH</h3><p>Flood prediction, alerts and monitoring for West Bengal districts, built on regional hydrological data.</p></div>
+      <div class="card tilt reveal r4"><p class="label plain">Community</p><h3 style="margin-top:12px">CLI'MATE'</h3><p>The village climate seminars where FTOH began, and where the first questions about burning were asked.</p></div>
+    </div>
+    <a class="next-page" href="team.html" style="margin-top:clamp(56px,8vw,96px)"><div><small>Next · People</small><strong>The team</strong></div><span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <p class="big">If a matchstick costs <em>₹1</em>, the solution must be free.</p>
+    <div class="footer-grid">
+      <div>
+        <a class="brand brand-lg" href="index.html" aria-label="SATARK home"><img src="img/satark-logo.svg" alt="SATARK" width="184" height="52"></a>
+        <p class="tiny">SATELLITE-AIDED THERMAL ANOMALY RESPONSE KIT</p>
+        <p class="addr" style="margin-top:22px">FTOH Research Collaborative<br>Kolaghat Block, Purba Medinipur<br>West Bengal, India</p>
+        <p class="addr mono" style="margin-top:14px;font-size:13px">team@satark.co.in</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="system.html">The System</a></li><li><a href="diva.html">DIVA Plasma Unit</a></li><li><a href="field.html">Field and Mandate</a></li><li><a href="impact.html">Impact</a></li><li><a href="journey.html">Journey</a></li></ul></div>
+      <div><h4>Evidence</h4><ul><li><a href="research.html#credentials">OSHWA IN000084</a></li><li><a href="https://doi.org/10.7910/DVN/QG8W63" target="_blank" rel="noopener">Harvard Dataverse</a></li><li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6425378" target="_blank" rel="noopener">SSRN preprints</a></li><li><a href="research.html#corrections">Corrections log</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="contact.html#demo">Request a demo</a></li><li><a href="contact.html#join">Join the team</a></li><li><a href="team.html">People</a></li><li><a href="index.html#press">In the press</a></li><li><a href="https://page0.satark.co.in" target="_blank" rel="noopener">Page 0 archive</a></li></ul></div>
+    </div>
+    <div class="footer-base"><span>© 2026 SATARK · FTOH Research Collaborative</span><span>Software GPL-3.0-or-later · Hardware CERN-OHL-S-2.0 · Documents CC BY-SA 4.0</span></div>
+  </div>
+  <div class="ghost-word bn" aria-hidden="true">সতর্ক</div>
+</footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo"><div><img alt=""><p></p></div></div>
+<script src="assets/satark.js"></script>
+<script>
+(function () {
+  const tl = document.getElementById("tl");
+  if (!tl) return;
+  const evs = [...tl.querySelectorAll(".ev")], still = (window.SATARK || {}).still;
+  function tick() {
+    const r = tl.getBoundingClientRect(), mid = innerHeight * 0.6;
+    const p = Math.max(0, Math.min(1, (mid - r.top) / r.height));
+    tl.style.setProperty("--tp", still ? 1 : p.toFixed(4));
+    evs.forEach(e => { const er = e.getBoundingClientRect(); e.classList.toggle("lit", still || er.top + 42 < mid); });
+  }
+  addEventListener("scroll", tick, { passive: true }); addEventListener("resize", tick); tick();
+})();
+</script>
+</body>
+</html>

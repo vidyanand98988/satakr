@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}html,body{background:#0A0E18}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;color:#B4BBCC}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>DIVA Plasma Unit · SATARK</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="DIVA is SATARK's cold plasma drum. It mounts on a combine harvester and opens the waxy skin of rice straw so it can decompose inside the 14-day window. Explore it in 3D.">
+<meta name="theme-color" content="#0A0E18">
+<link rel="icon" href="img/satark-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/satark.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="SATARK home"><img src="img/satark-logo.svg" alt="SATARK" width="95" height="27"></a>
+    <nav aria-label="Main"><ul class="nav-links"><li><a href="system.html">System</a></li><li><a href="diva.html" aria-current="page">DIVA</a></li><li><a href="field.html">Field</a></li><li><a href="impact.html">Impact</a></li><li><a href="research.html">Research</a></li><li><a href="journey.html">Journey</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+    <div class="nav-tools">
+      <button class="present-btn" type="button" aria-pressed="false" title="Full screen. Move between chapters with the arrow keys or a presentation clicker."><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="9" rx="1"/><path d="M8 11.5v2.5M5 14h6"/><path d="M6.6 5.1v3.8L9.9 7z" fill="currentColor" stroke="none"/></svg><span>Present</span></button>
+      <a class="btn sm nav-cta" href="contact.html#demo">Request a demo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <ol><li><a href="index.html">Home<span>Overview</span></a></li><li><a href="system.html">System<span>Orbit to Guardian</span></a></li><li><a href="diva.html" aria-current="page">DIVA<span>Cold plasma unit</span></a></li><li><a href="field.html">Field<span>Kolaghat pilot</span></a></li><li><a href="impact.html">Impact<span>Market and payback</span></a></li><li><a href="research.html">Research<span>Proof and papers</span></a></li><li><a href="journey.html">Journey<span>2022 to now</span></a></li><li><a href="team.html">Team<span>Who builds it</span></a></li><li><a href="contact.html">Contact<span>Demo and join</span></a></li></ol>
+  <div class="foot"><span>KOLAGHAT BLOCK · PURBA MEDINIPUR · WEST BENGAL</span><span>team@satark.co.in</span></div>
+</div>
+<main id="main" data-page="diva">
+<style>
+/* Hero film: the page scroll flies the camera out from the plasma gap to the harvester */
+.dv-film { position: relative; background: #050608; }
+.dv-scene { position: sticky; top: 0; height: 100vh; height: 100lvh; overflow: hidden; }
+.dv-scene video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.dv-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(10,14,24,.88) 0%, rgba(10,14,24,.52) 40%, rgba(10,14,24,0) 72%); }
+.dv-scene::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(10,14,24,.6) 0%, rgba(10,14,24,0) 24%, rgba(10,14,24,0) 74%, rgba(10,14,24,.45) 100%); }
+.dv-hud { position: absolute; z-index: 3; left: max(var(--gutter-l), calc((100% - 1240px) / 2 + var(--gutter-l))); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 14px; padding: 9px 18px; border-radius: 999px; background: rgba(10, 14, 24, .74); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(156, 136, 255, .3); font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #E9E6DC; white-space: nowrap; }
+.dv-hud i { width: clamp(70px, 14vw, 200px); height: 2px; background: rgba(233, 230, 220, .2); position: relative; }
+.dv-hud i::after { content: ""; position: absolute; inset: 0; background: var(--plasma); transform-origin: 0 50%; transform: scaleX(var(--fp, 0)); }
+.dv-hud b { font-weight: 500; color: var(--plasma); }
+.dv-content { position: relative; z-index: 2; margin-top: -100vh; margin-top: -100lvh; }
+.dv-block { min-height: 100vh; min-height: 100lvh; display: flex; align-items: center; box-sizing: border-box; padding-block: calc(var(--nav-h) + 32px) 96px; }
+.dv-block > .wrap { width: 100%; box-sizing: border-box; }
+.dv-intro { align-items: flex-start; padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + clamp(28px, 9vh, 110px)); }
+.dv-big { font-family: var(--display); font-stretch: 125%; font-weight: 900; font-size: clamp(96px, 17vw, 270px); line-height: .8; letter-spacing: -.02em; color: var(--cream); text-shadow: 0 20px 80px rgba(90, 67, 212, .65); margin: 16px 0 0; }
+.dv-intro h1 { font-size: clamp(30px, 4.2vw, 60px); font-stretch: 112%; text-transform: uppercase; font-weight: 820; line-height: .98; color: var(--cream); max-width: 13em; margin-top: 18px; text-shadow: 0 8px 30px rgba(0,0,0,.6); }
+.dv-intro .lead { margin-top: 20px; color: #DAD8EF; text-shadow: 0 2px 14px rgba(0,0,0,.8); max-width: 34em; }
+.dv-intro .btn-row { margin-top: 28px; }
+.dv-panel { max-width: 450px; padding: 26px 26px 24px; background: rgba(10, 14, 24, .74); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(156, 136, 255, .3); border-radius: 4px; box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .6); }
+.dv-panel.right { margin-left: auto; }
+.dv-panel h2 { color: var(--cream); font-size: clamp(24px, 2.6vw, 34px); font-weight: 760; line-height: 1.08; margin: 14px 0 12px; }
+.dv-panel p { color: #C9CEDB; font-size: 15.5px; }
+.dv-panel .kv { display: grid; margin-top: 16px; }
+.dv-panel .kv div { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-top: 1px dashed rgba(174, 181, 199, .22); font-size: 13.5px; }
+.dv-panel .kv span:first-child { color: var(--fog-2); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding-top: 2px; }
+.dv-panel .kv span:last-child { color: var(--cream); text-align: right; }
+@media (max-width: 760px) {
+  .dv-shade { background: linear-gradient(180deg, rgba(10,14,24,.55) 0%, rgba(10,14,24,.35) 55%, rgba(10,14,24,.2) 100%); }
+  .dv-block:not(.dv-intro) { align-items: flex-end; padding-bottom: 92px; }
+  .dv-panel { padding: 20px 20px 18px; }
+  .dv-panel p { font-size: 14.5px; }
+  .dv-hud { font-size: 10px; gap: 10px; padding: 8px 14px; }
+}
+
+/* Cuticle */
+.cuticle { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.xsec { width: 100%; max-width: 500px; height: auto; display: block; margin-inline: auto; }
+.xsec .spark { animation: spark 6s infinite; opacity: 0; }
+.xsec .crack { stroke-dasharray: 40; stroke-dashoffset: 40; animation: crack 6s infinite; }
+.xsec .mic { animation: mic 6s infinite; opacity: 0; }
+.xsec .wax { animation: wax 6s infinite; }
+@keyframes spark { 0%, 4% { opacity: 0; } 8%, 34% { opacity: 1; } 40%, 100% { opacity: 0; } }
+@keyframes crack { 0%, 22% { stroke-dashoffset: 40; } 42%, 92% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 40; } }
+@keyframes wax { 0%, 22% { opacity: 1; } 45%, 92% { opacity: .55; } 100% { opacity: 1; } }
+@keyframes mic { 0%, 46% { opacity: 0; transform: translate(0, 0); } 54% { opacity: 1; } 88% { opacity: 1; transform: translate(var(--mx), var(--my)); } 96%, 100% { opacity: 0; transform: translate(var(--mx), var(--my)); } }
+.phase { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+@media (max-width: 900px) { .cuticle { grid-template-columns: 1fr; } }
+
+/* Scroll-driven drum */
+.drum-story { position: relative; height: 560vh; background: var(--night); }
+.ds-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.ds-scene { position: absolute; inset: 0; }
+.ds-copy { position: absolute; z-index: 3; left: max(var(--gutter-l), calc((100vw - 1440px) / 2 + 20px)); top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 28px); width: min(380px, calc(100vw - 40px)); pointer-events: none; }
+.ds-copy .label { margin-bottom: 14px; }
+.ds-title { font-family: var(--display); font-stretch: 112%; font-weight: 820; text-transform: uppercase; color: var(--cream); font-size: clamp(28px, 3vw, 44px); line-height: .98; margin-bottom: 22px; }
+.ds-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--rule-n2); }
+.ds-steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 2px 10px; padding: 12px 0; border-bottom: 1px solid var(--rule-n); opacity: .45; transition: opacity .4s; }
+.ds-steps li.on { opacity: 1; }
+.ds-steps span { font-family: var(--mono); font-size: 12px; color: var(--plasma); padding-top: 4px; }
+.ds-steps h3 { font-size: 19px; color: var(--cream); font-weight: 700; }
+.ds-steps p { grid-column: 2; font-size: 15px; color: #C9CEDB; max-height: 0; overflow: hidden; transition: max-height .5s var(--ease), margin .5s; }
+.ds-steps li.on p { max-height: 160px; margin-top: 6px; }
+.ds-note { margin-top: 16px; font-size: 12.5px; color: var(--fog-2); }
+.ds-legend { display: none; }
+.ds-progress { position: absolute; z-index: 3; right: calc(var(--gutter-r) + 44px); bottom: calc(26px + env(safe-area-inset-bottom, 0px)); width: 180px; height: 2px; background: var(--rule-n2); }
+.ds-progress i { position: absolute; inset: 0; background: var(--plasma); transform-origin: 0 50%; transform: scaleX(var(--dp, 0)); }
+.drum-story .scene-tip { right: calc(var(--gutter-r) + 44px); bottom: 44px; }
+@media (max-width: 860px), (orientation: portrait) {
+  .ds-copy { left: 16px; right: 16px; width: auto; top: auto; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); padding: 14px 16px; background: rgba(10, 14, 24, .82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--rule-n2); border-radius: 6px; }
+  .ds-title, .ds-note, .ds-copy .label { display: none; }
+  .ds-steps { border: 0; }
+  .ds-steps li { display: none; border: 0; padding: 0; }
+  .ds-steps li.on { display: grid; }
+  .ds-progress, .drum-story .scene-tip { display: none; }
+  .ds-scene .pin > b { display: none; }
+  .ds-legend.show { display: block; }
+  .ds-legend { position: absolute; z-index: 3; left: 16px; right: 16px; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 12px); margin: 0; padding: 10px 14px 10px 30px; columns: 2; column-gap: 18px; font-size: 12px; line-height: 1.4; color: var(--cream); background: rgba(10, 14, 24, .78); border: 1px solid var(--rule-n2); border-radius: 6px; }
+}
+
+/* Chamber spec */
+.spec2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(28px, 4vw, 56px); margin: 0; }
+.spec2 div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 15px 0; border-top: 1px solid var(--rule-n); }
+.spec2 dt { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: #E9E6DC; }
+.spec2 dt i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.spec2 dd { margin: 0; font-size: 15.5px; }
+@media (max-width: 860px) { .spec2 { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .spec2 div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* Physics */
+.phys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule-n); }
+.phys > div { padding: 28px 24px 30px 0; border-bottom: 1px solid var(--rule-n); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.phys > div:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--rule-n); }
+.phys b { font-family: var(--display); font-stretch: 110%; font-weight: 820; font-size: clamp(40px, 4.6vw, 64px); line-height: .95; color: var(--cream); font-variant-numeric: tabular-nums; }
+.phys b small { font-size: .42em; margin-left: 6px; color: var(--plasma); font-weight: 700; }
+.phys em { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fog-2); }
+.phys > div > span { font-size: 15px; }
+@media (max-width: 860px) { .phys { grid-template-columns: repeat(2, minmax(0, 1fr)); } .phys > div:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; } .phys > div:nth-child(2n) { padding-left: 20px; border-left: 1px solid var(--rule-n); } }
+@media (max-width: 520px) { .phys { grid-template-columns: 1fr; } .phys > div:nth-child(2n) { padding-left: 0; border-left: 0; } }
+
+/* Decay curve */
+.duel { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 4vw, 56px); align-items: end; }
+.duel > * { min-width: 0; }
+.curve { margin-top: 30px; overflow-x: auto; }
+.curve svg { width: 100%; min-width: 440px; height: auto; display: block; }
+.curve-key { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 12px; font-size: 13.5px; }
+.curve-key span::before { content: ""; display: inline-block; width: 22px; height: 3px; margin-right: 8px; vertical-align: 4px; }
+.curve-key .d::before { background: var(--plasma-deep); } .curve-key .p::before { background: var(--ember-deep); }
+.model-card { padding: 26px; background: #fff; border: 1px solid var(--rule-p); border-radius: 4px; }
+.model-card dl { margin: 16px 0 0; display: grid; }
+.model-card dl div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid var(--rule-p); font-size: 15px; }
+.model-card dt { color: var(--ink-2); } .model-card dd { margin: 0; font-family: var(--mono); color: var(--ink); text-align: right; }
+@media (max-width: 860px) { .duel { grid-template-columns: 1fr; } }
+
+/* Harvester */
+.harv figure { margin: 40px 0 0; }
+.harv img { width: 100%; display: block; mix-blend-mode: multiply; }
+.flow3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--rule-p); }
+.flow3 h3 { font-size: 19px; font-weight: 700; color: var(--ink); margin: 10px 0 8px; }
+.flow3 p { font-size: 15.5px; }
+@media (max-width: 760px) { .flow3 { grid-template-columns: 1fr; } }
+
+/* Evolution */
+.evo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+.evo > div { padding: 0 24px 0 0; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.evo > div + div { padding-left: 24px; border-left: 1px solid var(--rule-n); }
+.evo svg { width: 100%; height: 150px; display: block; margin-bottom: 8px; }
+.evo h3 { color: var(--cream); font-size: 21px; font-weight: 750; }
+.evo p { font-size: 15px; }
+@media (max-width: 860px) { .evo { grid-template-columns: 1fr; gap: 36px; } .evo > div + div { padding-left: 0; border-left: 0; padding-top: 28px; border-top: 1px solid var(--rule-n); } }
+
+/* Risk heatmap */
+.riskwrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.heat { position: relative; padding: 0 0 28px 28px; }
+.heat .ax { position: absolute; font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fog-2); }
+.heat .ax-y { left: 0; top: 50%; transform: rotate(-90deg) translateX(50%); transform-origin: 0 0; }
+.heat .ax-x { left: 50%; bottom: 0; }
+.hm { display: grid; grid-template-columns: 92px repeat(4, minmax(0, 1fr)); gap: 4px; perspective: 900px; }
+.hm .hh, .hm .hr { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--fog); display: flex; align-items: center; }
+.hm .hh { justify-content: center; text-align: center; padding-bottom: 6px; }
+.hm i { position: relative; font-style: normal; aspect-ratio: 1.35; border-radius: 3px; display: flex; flex-wrap: wrap; align-items: flex-end; align-content: flex-end; gap: 4px; padding: 6px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; }
+.hm i.h { background: rgba(255, 90, 31, .78); color: #fff; }
+.hm i.s { background: rgba(255, 140, 60, .5); color: #fff; }
+.hm i.m { background: rgba(226, 183, 85, .32); color: #F3E3BC; }
+.hm i.l { background: rgba(142, 192, 107, .28); color: #DDF0CF; }
+.hm button { position: absolute; top: 6px; width: 26px; height: 26px; border-radius: 50%; border: 0; background: var(--plasma); color: var(--deep); font: 600 12px/1 var(--mono); cursor: pointer; box-shadow: 0 0 0 4px rgba(156, 136, 255, .25); transition: transform .25s var(--ease), background .25s; }
+.hm button:first-of-type { left: 6px; } .hm button + button { left: 38px; }
+.hm button:hover, .hm button.on { transform: scale(1.18) translateZ(20px); background: var(--cream); }
+.risks { list-style: none; margin: 0; padding: 0; display: grid; counter-reset: rk; border-top: 1px solid var(--rule-n); }
+.risks li { counter-increment: rk; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 12px; padding: 13px 10px 13px 0; border-bottom: 1px solid var(--rule-n); transition: background .3s, opacity .3s; }
+.risks li::before { content: counter(rk); grid-row: span 2; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: rgba(156, 136, 255, .18); color: var(--plasma); font: 600 12px/1 var(--mono); }
+.risks li.gone::before { background: rgba(142, 192, 107, .2); color: var(--leaf); }
+.risks b { color: var(--cream); font-weight: 600; font-size: 15.5px; }
+.risks span { font-size: 14.5px; }
+.risks.focus li { opacity: .35; } .risks.focus li.on { opacity: 1; background: rgba(156, 136, 255, .07); }
+@media (max-width: 960px) { .riskwrap { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .hm { grid-template-columns: 70px repeat(4, minmax(0, 1fr)); } .hm i { font-size: 0; } .hm .hh { font-size: 8.5px; } }
+
+/* Economics */
+.econ { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+.split { margin-top: 26px; }
+.split .barx { display: flex; height: 64px; border-radius: 3px; overflow: hidden; }
+.split .sub { flex: 80; background: repeating-linear-gradient(135deg, #D9D6CF 0 8px, #CFCBC2 8px 16px); display: flex; align-items: center; padding-left: 16px; font-family: var(--mono); font-size: 12px; color: var(--ink); letter-spacing: .06em; }
+.split .chc { flex: 20; background: var(--ink); color: var(--straw); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; }
+.split .scale { display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--mono); font-size: 11px; color: var(--ink-2); }
+@media (max-width: 860px) { .econ { grid-template-columns: 1fr; } }
+</style>
+
+<section class="dv-film" id="film" data-chapter="DIVA" data-flush aria-label="DIVA explained in a scroll-driven film">
+  <div class="dv-scene">
+    <video id="clip" muted playsinline preload="auto" poster="media/poster.jpg" aria-hidden="true" data-src-sm="media/plasma-pullout-720.mp4" data-src-lg="media/plasma-pullout-1080.mp4"></video>
+    <div class="dv-shade" id="dvShade"></div>
+    <div class="dv-hud" aria-hidden="true"><span id="fstep">Scroll · gap to harvester</span><i></i><b id="fcount">00 / 04</b></div>
+  </div>
+  <div class="dv-content">
+    <div class="dv-block dv-intro"><div class="wrap">
+      <p class="label plasma rise">SATARK · Treat</p>
+      <p class="dv-big rise d1">DIVA</p>
+      <h1 class="rise d2">Clean fields without a single match.</h1>
+      <p class="lead rise d3">Dielectric Ionization Vortex Accelerator. A cold plasma drum that rides on the combine harvester and opens the waxy skin of rice straw, so it can rot in time for the next sowing.</p>
+      <div class="btn-row rise d4"><a class="btn plasma" href="#inside">Take the drum apart <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn ghost" href="#curve">Ten days, not twenty-five</a></div>
+    </div></div>
+    <div class="dv-block" data-stop><div class="wrap"><article class="dv-panel">
+      <p class="label plasma">01 · Cold plasma</p>
+      <h2>Lightning without the fire.</h2>
+      <p>High voltage across glass barriers makes a dielectric barrier discharge. The electrons are energetic. The gas stays near room temperature. No flame, no smoke, nothing to catch.</p>
+    </article></div></div>
+    <div class="dv-block" data-stop><div class="wrap"><article class="dv-panel right">
+      <p class="label plasma">02 · The unit cell</p>
+      <h2>Mesh, glass, gap, ground.</h2>
+      <p>The bench prototype stacks a copper mesh electrode over a borosilicate barrier, a discharge gap the straw passes through, and a ground electrode.</p>
+      <div class="kv"><div><span>Drive</span><span>Flexible SMPS, ZVS driver, flyback</span></div><div><span>HV bus</span><span>≈40 kV</span></div><div><span>Barrier</span><span>Borosilicate glass</span></div></div>
+    </article></div></div>
+    <div class="dv-block" data-stop><div class="wrap"><article class="dv-panel">
+      <p class="label plasma">03 · The drum</p>
+      <h2>Ten electrodes, one turning drum.</h2>
+      <p>Ten glass-sleeved electrodes run the full length of a steel chamber, 500 mm across. Each wears a 12 mm collar of glowing air, outside the glass. Straw tumbles along them, never across them, so nothing can wrap. Only the earthed shell turns.</p>
+    </article></div></div>
+    <div class="dv-block" data-stop><div class="wrap"><article class="dv-panel right">
+      <p class="label plasma">04 · On the harvester</p>
+      <h2>Same pass. No extra trip.</h2>
+      <p>The chamber mounts under the harvester's exhaust, tilted 6°. Straw falls in the high end, tumbles for about two seconds and falls out the low end, treated. No extra pass, no extra fuel, no extra day.</p>
+    </article></div></div>
+  </div>
+</section>
+
+<section class="band paper" id="why" data-chapter="Cuticle">
+  <div class="wrap cuticle">
+    <div class="stack reveal">
+      <p class="label plasma">The lock nobody picked</p>
+      <h2 class="h2">The real constraint isn't technology. It's time.</h2>
+      <p class="lead">Time is set by one thing: the plant cuticle, the stratum cuticulare. Biology's waterproof armour, built to lock moisture in and keep microbes out. Nature takes 60 days to crack it. Pusa, the best decomposer on the market, needs 25. Farmers have 14.</p>
+      <p>Every other fix fought the symptom. DIVA picks the lock. Cold plasma strips hydrogen and splits carbon chains on the cuticle surface, the wax oxidises and cracks open, and moisture and microbes reach the cellulose underneath for the first time. The Pusa Decomposer then finishes the job in days instead of weeks.</p>
+      <div class="phase"><span class="tag" style="color:var(--plasma-deep)">1 · Plasma hits the cuticle</span><span class="tag">2 · Wax cracks</span><span class="tag" style="color:var(--leaf-deep)">3 · Microbes get in</span></div>
+    </div>
+    <svg class="xsec reveal r2" viewBox="0 0 400 400" role="img" aria-label="Cross-section of a rice straw: plasma sparks hit the waxy outer layer, cracks open, and microbes move inward">
+      <defs><radialGradient id="pith" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F4F3F0"/><stop offset="1" stop-color="#E6DDC6"/></radialGradient><filter id="sg"><feGaussianBlur stdDeviation="2.5"/></filter></defs>
+      <circle cx="200" cy="200" r="150" fill="none" stroke="#C99A45" stroke-width="26" class="wax"/>
+      <circle cx="200" cy="200" r="163" fill="none" stroke="#8F6427" stroke-width="2"/>
+      <circle cx="200" cy="200" r="136" fill="url(#pith)" stroke="#B88A3C" stroke-width="2"/>
+      <circle cx="200" cy="200" r="70" fill="#FBFAF7" stroke="#D9C9A3" stroke-dasharray="3 5"/>
+      <g fill="none" stroke="#D9C9A3" stroke-width="1.2"><circle cx="150" cy="150" r="14"/><circle cx="250" cy="152" r="14"/><circle cx="252" cy="250" r="14"/><circle cx="148" cy="252" r="14"/><circle cx="200" cy="120" r="10"/><circle cx="280" cy="200" r="10"/><circle cx="200" cy="280" r="10"/><circle cx="120" cy="200" r="10"/></g>
+      <text x="200" y="205" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#85610F" letter-spacing="1">CELLULOSE</text>
+      <text x="200" y="24" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#85610F" letter-spacing="1">WAX AND SILICA CUTICLE</text>
+      <g class="spark" stroke="#7C64F0" stroke-width="2.4" fill="none" stroke-linecap="round"><g filter="url(#sg)" opacity=".7"><path d="M60 40 L80 70 L72 78 L96 104"/><path d="M350 70 L330 92 L340 100 L316 124"/><path d="M370 300 L340 296 L344 308 L318 300"/><path d="M40 320 L68 306 L64 318 L90 300"/></g><path d="M60 40 L80 70 L72 78 L96 104"/><path d="M350 70 L330 92 L340 100 L316 124"/><path d="M370 300 L340 296 L344 308 L318 300"/><path d="M40 320 L68 306 L64 318 L90 300"/></g>
+      <g class="crack" stroke="#4A2F0E" stroke-width="2.2" fill="none" stroke-linecap="round"><path d="M104 98 L116 112 L112 122 L124 134"/><path d="M308 112 L296 124 L300 134 L288 144"/><path d="M322 292 L308 286 L304 298 L290 292"/><path d="M92 296 L106 286 L112 296 L124 288"/></g>
+      <g fill="#3F7A22"><circle class="mic" cx="110" cy="104" r="5" style="--mx:28px;--my:30px"/><circle class="mic" cx="302" cy="118" r="5" style="--mx:-30px;--my:28px;animation-delay:.2s"/><circle class="mic" cx="316" cy="292" r="5" style="--mx:-32px;--my:-24px;animation-delay:.35s"/><circle class="mic" cx="98" cy="292" r="5" style="--mx:30px;--my:-24px;animation-delay:.1s"/><circle class="mic" cx="118" cy="114" r="3.5" style="--mx:44px;--my:40px;animation-delay:.5s"/><circle class="mic" cx="296" cy="128" r="3.5" style="--mx:-44px;--my:40px;animation-delay:.6s"/></g>
+    </svg>
+  </div>
+</section>
+
+<section class="drum-story" id="inside" data-story data-chapter="Inside the drum">
+  <div class="ds-stage">
+    <div class="scene ds-scene" data-scene="drum" data-mode="story" role="img" aria-label="3D model of the DIVA drum. As you scroll: the steel shell turns, a cutaway reveals ten fixed electrodes, cold plasma ignites around them, straw tumbles through, and the drum comes apart into labelled parts."><div class="scene-fallback">3D model needs WebGL</div></div>
+    <div class="ds-copy">
+      <p class="label plasma">Inside the Vortex drum</p>
+      <p class="ds-title">Take the drum apart.</p>
+      <ol class="ds-steps">
+        <li data-step class="on"><span>01</span><h3>The chamber</h3><p>A 500 mm steel shell, earthed. It is the ground electrode and the only part that turns.</p></li>
+        <li data-step><span>02</span><h3>Ten fixed electrodes</h3><p>An M8 stainless rod inside a 20 mm borosilicate 3.3 sleeve, ten of them at 36°. No high-voltage part rotates.</p></li>
+        <li data-step><span>03</span><h3>Plasma ignites</h3><p>A 12 to 15 mm collar of glowing air forms around each sleeve, outside the glass. Hot electrons, cool gas.</p></li>
+        <li data-step><span>04</span><h3>Straw tumbles through</h3><p>Six PTFE lifters raise the straw and drop it through the electrodes. Every rotation turns the bed over. About two seconds inside.</p></li>
+        <li data-step><span>05</span><h3>Every part, labelled</h3><p>Housing lifted, end parts slid out along the axis. Drag to look around.</p></li>
+      </ol>
+      <p class="ds-note">Illustrative model built from the production chamber spec. Treated straw is tinted violet only to show where the plasma has reached it.</p>
+    </div>
+    <ol class="ds-legend" id="dsLegend"><li>Steel housing, earthed</li><li>Ten plasma electrode tubes</li><li>Blanked core, 250 mm</li><li>PTFE lifters</li><li>Front flange, tube sockets</li><li>End cap with drive gear</li><li>Hub plate</li><li>Sealed cable gland</li><li>HV power cable</li><li>Straw path between tubes</li></ol>
+    <p class="scene-tip"><i></i>Scroll to advance · drag to turn</p>
+    <div class="ds-progress" aria-hidden="true"><i id="dsBar"></i></div>
+  </div>
+</section>
+
+<section class="band night" id="chamber" data-chapter="Chamber">
+  <div class="grid-lines"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><p class="label plasma">The chamber · production unit</p><h2 class="h2">Every rotation turns the bed over.</h2></div>
+      <p class="lead reveal r2">A flat wafer treats one face of one stalk for under a millisecond. A bladed wheel puts metal across a 3.5 kg/s straw stream. The chamber gives every stalk a new face to the plasma on every turn. No stalk stays buried. None flies past untreated.</p>
+    </div>
+    <dl class="spec2 reveal">
+      <div><dt><i style="background:#AEB5C7"></i>Outer shell</dt><dd>500 mm steel, earthed. The ground electrode and the only part that turns.</dd></div>
+      <div><dt><i style="background:var(--plasma)"></i>Electrodes</dt><dd>10 at 36°, fixed. M8 stainless rod inside a 20 mm borosilicate 3.3 sleeve.</dd></div>
+      <div><dt><i style="background:#C9BDFF;box-shadow:0 0 10px var(--plasma)"></i>Plasma</dt><dd>12 to 15 mm annular glow around each sleeve, outside the glass.</dd></div>
+      <div><dt><i style="background:#4A5062"></i>Core</dt><dd>250 mm blanked core leaves a ring cavity 125 mm deep.</dd></div>
+      <div><dt><i style="background:#E2B755"></i>Lifters</dt><dd>6 PTFE flights at 60° lift the straw and drop it through the electrodes.</dd></div>
+      <div><dt><i style="border:1px solid var(--fog)"></i>Mounting</dt><dd>Under the harvester's exhaust, tilted 6°. About two seconds inside.</dd></div>
+      <div><dt><i style="border:1px solid var(--fog)"></i>Drive</dt><dd>60:1 worm gearbox off the chopper shaft (900 to 2,400 RPM), so drum speed follows ground speed.</dd></div>
+      <div><dt><i style="border:1px solid var(--fog)"></i>Bench unit</dt><dd>Built for ₹4,225. Powered, discharge confirmed.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band night-2" id="physics" data-chapter="Physics">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><p class="label plasma">The physics</p><h2 class="h2">Hot electrons, cool gas.</h2></div>
+      <p class="lead reveal r2">A carbon-hydrogen bond takes about 4 eV to break. DIVA's electrons carry 4 to 5 eV on average. Each self-extinguishing microdischarge lives for nanoseconds and throws off reactive oxygen and nitrogen species, energetic electrons and UV. The straw stays cold throughout.</p>
+    </div>
+    <div class="phys">
+      <div class="reveal"><em>Reduced field</em><b>≈<span data-count="123">123</span><small>Td</small></b><span>E/N in the discharge gap</span></div>
+      <div class="reveal r2"><em>Mean electron energy</em><b>4 to 5<small>eV</small></b><span>Bond-breaking range for surface wax</span></div>
+      <div class="reveal r3"><em>HV bus</em><b>≈<span data-count="40">40</span><small>kV</small></b><span>From a ZVS driver and flyback on the bench unit</span></div>
+      <div class="reveal"><em>Electrodes</em><b><span data-count="10">10</span><small>rods</small></b><span>Glass sleeved, axial, fixed in place</span></div>
+      <div class="reveal r2"><em>Target</em><b><span data-count="14">14</span><small>days</small></b><span>Harvest to sowing window it is built to meet</span></div>
+      <div class="reveal r3"><em>Bench unit · built</em><b>₹4,225</b><span>Powered, discharge confirmed</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band paper" id="curve" data-chapter="Ten days">
+  <div class="wrap duel">
+    <div class="reveal">
+      <p class="label plasma">Cold plasma's effect on decomposition speed</p>
+      <h2 class="h2" style="margin-top:18px">Ten days. They had fourteen.</h2>
+      <div class="curve">
+        <svg viewBox="0 0 560 330" role="img" aria-label="Modelled stubble decomposition over 25 days. Cold plasma plus Pusa reaches about 31 percent by day 10, field ready. Pusa alone reaches about 32 percent only by day 25.">
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#6E7385">
+            <rect x="60" y="30" width="268.8" height="240" fill="rgba(142,192,107,.14)"/>
+            <text x="66" y="46" fill="#3F7A22" letter-spacing="1">SOWING WINDOW</text>
+            <line x1="60" y1="270" x2="540" y2="270" stroke="rgba(14,19,34,.35)"/>
+            <line x1="60" y1="210" x2="540" y2="210" stroke="rgba(14,19,34,.07)"/><line x1="60" y1="150" x2="540" y2="150" stroke="rgba(14,19,34,.07)"/><line x1="60" y1="90" x2="540" y2="90" stroke="rgba(14,19,34,.07)"/><line x1="60" y1="30" x2="540" y2="30" stroke="rgba(14,19,34,.07)"/>
+            <text x="50" y="274" text-anchor="end">0</text><text x="50" y="214" text-anchor="end">25</text><text x="50" y="154" text-anchor="end">50</text><text x="50" y="94" text-anchor="end">75</text><text x="50" y="34" text-anchor="end">100%</text>
+            <text x="60" y="290" text-anchor="middle">0</text><text x="156" y="290" text-anchor="middle">5</text><text x="252" y="290" text-anchor="middle">10</text><text x="348" y="290" text-anchor="middle">15</text><text x="444" y="290" text-anchor="middle">20</text><text x="540" y="290" text-anchor="middle">25</text>
+            <text x="300" y="318" text-anchor="middle" fill="#8A8FA0">days after harvest · stubble decomposition</text>
+          </g>
+          <line x1="252" y1="30" x2="252" y2="270" stroke="#5A43D4" stroke-dasharray="4 4"/>
+          <line x1="540" y1="30" x2="540" y2="270" stroke="#B53A0B" stroke-dasharray="4 4"/>
+          <path d="M60 270 L156 262.8 L252 246 L348 226.8 L444 212.4 L540 193.2" fill="none" stroke="#B53A0B" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M60 270 L156 236.4 L252 195.6 L348 166.8 L444 133.2 L540 92.4" fill="none" stroke="#5A43D4" stroke-width="3.5" stroke-linejoin="round"/>
+          <circle cx="252" cy="195.6" r="6" fill="#5A43D4"/><circle cx="540" cy="193.2" r="6" fill="#B53A0B"/>
+          <rect x="262" y="160" width="150" height="34" fill="#0E1322"/><text x="270" y="174" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#C9BDFF">READY TO SOW · DAY 10</text><text x="270" y="187" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#F3F1EA">about 30% mass loss</text>
+          <rect x="392" y="214" width="140" height="22" fill="#B53A0B"/><text x="400" y="229" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#fff">PUSA READY · DAY 25</text>
+        </svg>
+        <div class="curve-key"><span class="d">Cold plasma, then Pusa Decomposer</span><span class="p">Pusa Decomposer alone</span></div>
+      </div>
+      <p class="swipe-hint" aria-hidden="true">Swipe the chart to see day 25 →</p>
+    </div>
+    <div class="model-card reveal r2">
+      <p class="label plain">How honest is this curve?</p>
+      <p style="margin-top:12px;font-size:15.5px">It is a modelled projection. No published study couples cold plasma pretreatment with in-field microbial decomposition of paddy straw yet, so this curve is our hypothesis. Baseline is untreated field decay. Validation is the Year 1 pilot.</p>
+      <dl>
+        <div><dt>Mechanism</dt><dd>Cuticle permeability</dd></div>
+        <div><dt>DBD wax modification</dt><dd>Chen et al., 2018, Sci Rep</dd></div>
+        <div><dt>Decay baseline fit</dt><dd>19 points · R² = 0.84</dd></div>
+        <div><dt>Field ready</dt><dd>≈30% mass loss</dd></div>
+        <div><dt>Status</dt><dd>Year 1 pilot validates</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band paper-2 harv" id="harvester" data-chapter="Harvester">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0">
+      <div class="reveal"><p class="label">On the harvester</p><h2 class="h2">Fits the back of a combine and works in the same pass.</h2></div>
+      <p class="lead reveal r2">No new tractor, no new queue at the Custom Hiring Centre, nothing new for the farmer to schedule.</p>
+    </div>
+    <figure class="reveal"><img src="img/harvester.webp" alt="Line drawing of a combine harvester with the DIVA plasma drum mounted at the rear, spreading treated straw" loading="lazy" width="1404" height="766"></figure>
+    <div class="flow3 reveal">
+      <div><span class="label plain">Collect</span><h3>Straw goes straight into the drum</h3><p>The harvester cuts the crop and feeds the leftover straw into the unit.</p></div>
+      <div><span class="label plain">Treat</span><h3>Cold plasma, driven by the harvester</h3><p>The chopper shaft turns the drum while the tubes treat the straw tumbling past them.</p></div>
+      <div><span class="label plain">Return</span><h3>Back on the field, not burned</h3><p>Treated straw is spread behind the machine, ready for the decomposer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band night" id="evolution" data-chapter="Evolution">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><p class="label plasma">How it got here</p><h2 class="h2">Wafer, wheel, chamber.</h2></div>
+      <p class="lead reveal r2">Each version solved the last one's failure. The wafer proved the physics. The wheel would wrap. The chamber lets straw flow along the electrodes and tumble through the plasma.</p>
+    </div>
+    <div class="evo">
+      <div class="reveal"><svg viewBox="0 0 260 150" aria-hidden="true"><g transform="translate(40 30)"><path d="M0 20 L120 0 L180 20 L60 40Z" fill="none" stroke="#C26B3A" stroke-width="1.5"/><path d="M0 44 L120 24 L180 44 L60 64Z" fill="rgba(156,136,255,.15)" stroke="#9C88FF" stroke-width="1.5"/><path d="M0 74 L120 54 L180 74 L60 94Z" fill="none" stroke="#C26B3A" stroke-width="1.5"/><path d="M40 34 L44 48 L38 52 L44 64" stroke="#9C88FF" fill="none"/><path d="M110 22 L114 36 L108 40 L114 54" stroke="#9C88FF" fill="none"/></g></svg>
+        <span class="tag live">Built and verified</span><h3>The wafer</h3><p>Woven copper mesh, borosilicate glass, a 9 to 10 mm plasma gap, copper foil ground and an acrylic base. The science, proven on a bench.</p></div>
+      <div class="reveal r2"><svg viewBox="0 0 260 150" aria-hidden="true"><g transform="translate(130 75)"><circle r="56" fill="none" stroke="rgba(174,181,199,.35)"/><circle r="8" fill="#AEB5C7"/><g stroke="#9C88FF" stroke-width="5" stroke-linecap="round"><path d="M0 -12 V-52"/><path d="M10 -6 L45 -26"/><path d="M10 6 L45 26"/><path d="M0 12 V52"/><path d="M-10 6 L-45 26"/><path d="M-10 -6 L-45 -26"/></g></g></svg>
+        <span class="tag warn">Dropped</span><h3>Spoke wheel</h3><p>Wafers arranged radially around a hub. A bladed wheel puts metal across the straw stream, and straw wraps anything it crosses.</p></div>
+      <div class="reveal r3"><svg viewBox="0 0 260 150" aria-hidden="true"><rect x="30" y="35" width="200" height="80" rx="40" fill="none" stroke="rgba(174,181,199,.45)" stroke-width="1.5"/><g stroke="#9C88FF" stroke-width="5" stroke-linecap="round"><path d="M55 52 H205"/><path d="M50 68 H210"/><path d="M50 84 H210"/><path d="M55 100 H205"/></g><path d="M20 128 L240 128" stroke="#E2B755" stroke-dasharray="3 6"/><path d="M226 122 L240 128 L226 134" fill="none" stroke="#E2B755"/></svg>
+        <span class="tag next">Next build</span><h3>The chamber</h3><p>Ten fixed axial electrodes, an earthed rotating shell, straw flowing along the electrodes. No rotating high-voltage contacts anywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band paper-2" id="bench" data-chapter="Bench unit">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><p class="label">Proof of work</p><h2 class="h2">Not a render. The bench unit.</h2></div>
+      <p class="lead reveal r2">Built, wired and powered on a desk in Gurchakli, Purba Medinipur. Every number in the chamber design was built around this unit. Tap a photo to look closer.</p>
+    </div>
+    <div class="pow">
+      <figure class="photo wide reveal" data-zoom><img src="img/bench-assembled.webp" alt="The DIVA bench unit assembled: power supply, ZVS resonant driver, ferrite step-up transformer and a coaxial glass discharge cell" width="1400" height="413" loading="lazy"><figcaption>The bench unit, assembled · SMPS · ZVS driver · ferrite step-up · coaxial discharge cell</figcaption></figure>
+      <figure class="photo reveal" data-zoom><img src="img/bench-cell.webp" alt="Borosilicate glass discharge cell wrapped in foil electrodes" width="878" height="518" loading="lazy"><figcaption>Discharge cell · borosilicate · foil electrodes · 9 to 10 mm gap</figcaption></figure>
+      <figure class="photo reveal r2" data-zoom><img src="img/bench-supply.webp" alt="350 watt switched mode power supply" width="842" height="518" loading="lazy"><figcaption>Power supply · 350 W switched mode · DC rail</figcaption></figure>
+      <figure class="photo reveal r3" data-zoom><img src="img/bench-stepup.webp" alt="ZVS resonant driver board and ferrite flyback transformer" width="844" height="518" loading="lazy"><figcaption>Step-up stage · ZVS resonant driver + ferrite transformer</figcaption></figure>
+    </div>
+    <div class="built reveal">
+      <div><small>Discharge cell</small><b>Borosilicate, 9 to 10 mm gap</b></div>
+      <div><small>Drive stage</small><b>ZVS resonant + ferrite step-up</b></div>
+      <div><small>Supply</small><b>350 W SMPS, DC rail</b></div>
+      <div><small>Bench BOM</small><b>₹4,225 ($49)</b></div>
+      <div class="ok"><small>Status</small><b>Powered, discharge confirmed</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="band night" id="risk" data-chapter="Risks">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><p class="label ember">Risk mapping</p><h2 class="h2">What could break, and what we did about it.</h2></div>
+      <p class="lead reveal r2">Eight engineering and adoption risks, placed by probability and severity. Pick a number to see the mitigation.</p>
+    </div>
+    <div class="riskwrap">
+      <div class="heat reveal" id="heat" role="group" aria-label="Risk heatmap">
+        <span class="ax ax-y">Probability</span><span class="ax ax-x">Severity</span>
+        <div class="hm">
+          <span></span><span class="hh">Catastrophic</span><span class="hh">Critical</span><span class="hh">Marginal</span><span class="hh">Negligible</span>
+          <span class="hr">Frequent</span><i class="h">High</i><i class="h">High</i><i class="s">Serious</i><i class="m">Medium<button type="button" data-r="5">5</button></i>
+          <span class="hr">Probable</span><i class="h">High</i><i class="h">High</i><i class="s">Serious<button type="button" data-r="2">2</button><button type="button" data-r="3">3</button></i><i class="m">Medium</i>
+          <span class="hr">Occasional</span><i class="h">High<button type="button" data-r="6">6</button></i><i class="s">Serious<button type="button" data-r="4">4</button></i><i class="m">Medium<button type="button" data-r="7">7</button></i><i class="l">Low</i>
+          <span class="hr">Remote</span><i class="s">Serious</i><i class="m">Medium<button type="button" data-r="1">1</button></i><i class="m">Medium</i><i class="l">Low</i>
+          <span class="hr">Improbable</span><i class="m">Medium</i><i class="m">Medium</i><i class="m">Medium</i><i class="l">Low</i>
+        </div>
+      </div>
+      <ol class="risks reveal r2" id="risks">
+        <li data-r="1"><b>Vibration and durability under continuous running</b><span>Electrodes are stationary and axial. Only the earthed shell rotates, on trunnion bearings. No rotating HV contacts anywhere.</span></li>
+        <li data-r="2"><b>Mounting differs across harvester models</b><span>Two-SKU strategy: West Bengal track combines first, Punjab self-propelled machines on a separate bracket.</span></li>
+        <li data-r="3"><b>Dust and moisture at the discharge zone</b><span>Sealed housing. Self-extinguishing microdischarges mean no ignition risk.</span></li>
+        <li data-r="4"><b>Power draw upsetting the harvester's electrics</b><span>A buffer battery isolates the spiky HV load. The farmer's electronics never see the transient.</span></li>
+        <li data-r="5"><b>Glass sleeve wear and dust tracking</b><span>Sleeves are passive consumables. Tool-free swap, replaced as a set each season.</span></li>
+        <li data-r="6"><b>Regulatory clearance for HV on farm machinery</b><span>Early engagement through the existing BDO Kolaghat, ADA Egra and SDO relationships.</span></li>
+        <li data-r="7"><b>CHC reluctance to modify owned equipment</b><span>Bolt-on retrofit. Fully reversible, no permanent modification.</span></li>
+        <li data-r="8" class="gone"><b>Rotation speed mismatch at varying ground speed</b><span>Eliminated by design. A 60:1 worm gearbox off the chopper shaft keeps chamber speed and ground speed together.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="band paper" id="pays" data-chapter="Who pays">
+  <div class="wrap econ">
+    <div class="stack reveal">
+      <p class="label">Who pays</p>
+      <h2 class="h2">Priced for a Custom Hiring Centre.</h2>
+      <p class="lead">We don't need farmers to pay for this. The Crop Residue Management scheme already subsidises anti-stubble-burning machinery at 80% for Custom Hiring Centres. At ₹35,000 a unit, government pays ₹28,000 and the CHC pays about ₹7,000.</p>
+      <a class="textlink" href="impact.html">See the full payback and impact case</a>
+    </div>
+    <div class="reveal r2">
+      <div class="cols-2">
+        <div class="stat"><b>80%</b><span>CRM subsidy for Custom Hiring Centres</span></div>
+        <div class="stat"><b><span data-count="47">47</span><small>acres</small></b><span>Breakeven for a CHC running DIVA</span></div>
+      </div>
+      <div class="split" role="img" aria-label="Of a 35,000 rupee unit, the CRM scheme pays 28,000 and the CHC pays 7,000">
+        <div class="barx"><div class="sub">CRM subsidy · ₹28,000</div><div class="chc">₹7,000</div></div>
+        <div class="scale"><span>₹0</span><span>Retail ₹35,000 ($420)</span></div>
+      </div>
+      <p style="margin-top:16px;font-size:15px">A CHC charging ₹150 an acre recovers its share in about 47 acres, the first two days of harvest.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band night" data-chapter="Open hardware">
+  <div class="wrap cta-row">
+    <div class="reveal">
+      <div class="btn-row" style="gap:10px"><span class="tag">OSHWA IN000084</span><span class="tag">CERN-OHL-S-2.0</span><span class="tag next">LPU BIC · 20 to 21 Nov 2026</span></div>
+      <h2 class="h2" style="margin-top:22px;max-width:15em">Open hardware. Anyone can build it, and anyone can check it.</h2>
+    </div>
+    <div class="btn-row reveal r2"><a class="btn" href="contact.html#demo">Request a demo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a><a class="btn ghost" href="research.html">See the research</a></div>
+  </div>
+  <div class="wrap"><a class="next-page" href="field.html" style="margin-top:clamp(56px,8vw,96px)"><div><small>Next · Respond</small><strong>Field and mandate</strong></div><span class="arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a></div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <p class="big">If a matchstick costs <em>₹1</em>, the solution must be free.</p>
+    <div class="footer-grid">
+      <div>
+        <a class="brand brand-lg" href="index.html" aria-label="SATARK home"><img src="img/satark-logo.svg" alt="SATARK" width="184" height="52"></a>
+        <p class="tiny">SATELLITE-AIDED THERMAL ANOMALY RESPONSE KIT</p>
+        <p class="addr" style="margin-top:22px">FTOH Research Collaborative<br>Kolaghat Block, Purba Medinipur<br>West Bengal, India</p>
+        <p class="addr mono" style="margin-top:14px;font-size:13px">team@satark.co.in</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="system.html">The System</a></li><li><a href="diva.html">DIVA Plasma Unit</a></li><li><a href="field.html">Field and Mandate</a></li><li><a href="impact.html">Impact</a></li><li><a href="journey.html">Journey</a></li></ul></div>
+      <div><h4>Evidence</h4><ul><li><a href="research.html#credentials">OSHWA IN000084</a></li><li><a href="https://doi.org/10.7910/DVN/QG8W63" target="_blank" rel="noopener">Harvard Dataverse</a></li><li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6425378" target="_blank" rel="noopener">SSRN preprints</a></li><li><a href="research.html#corrections">Corrections log</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="contact.html#demo">Request a demo</a></li><li><a href="contact.html#join">Join the team</a></li><li><a href="team.html">People</a></li><li><a href="index.html#press">In the press</a></li><li><a href="https://page0.satark.co.in" target="_blank" rel="noopener">Page 0 archive</a></li></ul></div>
+    </div>
+    <div class="footer-base"><span>© 2026 SATARK · FTOH Research Collaborative</span><span>Software GPL-3.0-or-later · Hardware CERN-OHL-S-2.0 · Documents CC BY-SA 4.0</span></div>
+  </div>
+  <div class="ghost-word bn" aria-hidden="true">সতর্ক</div>
+</footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo"><div><img alt=""><p></p></div></div>
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/s3d-core.js"></script>
+<script src="assets/s3d-drum.js"></script>
+<script src="assets/satark.js"></script>
+<script>
+(function () {
+  // Hero film: the page scroll scrubs the pull-out, from the plasma gap to the harvester, one panel per stage
+  const film = document.getElementById("film"), video = document.getElementById("clip");
+  if (film && video) {
+    const S = window.SATARK || {};
+    const small = innerWidth <= 900 || (navigator.connection && navigator.connection.saveData);
+    const src = small ? video.dataset.srcSm : video.dataset.srcLg;
+    // Load the clip into memory so seeking works on any host, including ones without range requests
+    let direct = false;
+    const useDirect = () => { if (!direct) { direct = true; video.src = src; } };
+    video.addEventListener("error", () => { if (video.src.startsWith("blob:")) useDirect(); });
+    if (window.fetch && location.protocol !== "file:") {
+      fetch(src).then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then(b => { if (!direct) video.src = URL.createObjectURL(b); })
+        .catch(useDirect);
+    } else useDirect();
+
+    const T = [0, 0.9, 2.1, 3.3, 4.3]; // seconds into the clip: close-up, cold plasma, unit cell, drum, harvester
+    const NAMES = ["Scroll · gap to harvester", "Cold plasma", "The unit cell", "The drum", "On the harvester"];
+    const blocks = [...film.querySelectorAll(".dv-block")];
+    const stepEl = document.getElementById("fstep"), countEl = document.getElementById("fcount"), shade = document.getElementById("dvShade");
+    let P = [0, 0.25, 0.5, 0.75, 1], span = 1;
+    const measure = () => {
+      span = Math.max(1, film.offsetHeight - innerHeight);
+      const top = film.getBoundingClientRect().top;
+      P = blocks.map(b => Math.min(1, Math.max(0, (b.getBoundingClientRect().top - top) / span)));
+    };
+    const ease = u => u * u * (3 - 2 * u);
+    const timeAt = p => {
+      if (p <= P[0]) return T[0];
+      for (let i = 0; i < P.length - 1; i++) if (p <= P[i + 1]) return T[i] + (T[i + 1] - T[i]) * ease((p - P[i]) / Math.max(1e-4, P[i + 1] - P[i]));
+      return T[T.length - 1];
+    };
+    const dur = () => (isFinite(video.duration) && video.duration > 0 ? video.duration : 5.04);
+    let cur = 0, shown = -1, running = false, raf = 0;
+    const seek = () => { if (video.readyState >= 1 && !video.seeking && Math.abs(video.currentTime - cur) > 1 / 60) video.currentTime = cur; };
+    video.addEventListener("seeked", seek);
+    video.addEventListener("loadedmetadata", seek);
+    function frame() {
+      raf = 0;
+      const p = Math.min(1, Math.max(0, -film.getBoundingClientRect().top / span));
+      const target = Math.min(dur() - 1 / 48, timeAt(p));
+      cur = S.still ? target : cur + (target - cur) * 0.2;
+      if (Math.abs(target - cur) < 0.003) cur = target;
+      seek();
+      film.style.setProperty("--fp", p.toFixed(4));
+      let i = 0;
+      for (let k = 1; k < P.length; k++) if (Math.abs(p - P[k]) < Math.abs(p - P[i])) i = k;
+      if (i !== shown) { shown = i; if (stepEl) stepEl.textContent = NAMES[i]; if (countEl) countEl.textContent = "0" + i + " / 04"; }
+      if (shade) shade.style.opacity = (1 - 0.65 * Math.min(1, p / Math.max(0.01, P[1]))).toFixed(3);
+      // On tall, narrow screens keep the drum in frame as the camera lands on the harvester
+      const out = Math.min(1, Math.max(0, (p - P[3]) / Math.max(0.01, 1 - P[3])));
+      video.style.objectPosition = innerWidth / innerHeight < 1.25 ? (50 - 28 * ease(out)).toFixed(1) + "% 50%" : "";
+      if (running) kick();
+    }
+    const kick = () => { if (!raf) raf = requestAnimationFrame(frame); };
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => { running = es[0].isIntersecting; if (running) kick(); }, { rootMargin: "120px 0px" }).observe(film);
+    else running = true;
+    addEventListener("resize", () => { measure(); kick(); });
+    addEventListener("load", () => { measure(); kick(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); kick(); });
+    measure(); kick();
+  }
+
+  // Story progress bar and legend visibility
+  const story = document.getElementById("inside"), bar = document.getElementById("dsBar"), legend = document.getElementById("dsLegend");
+  if (story) {
+    const tick = () => {
+      const r = story.getBoundingClientRect(), p = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - innerHeight)));
+      if (bar) bar.style.setProperty("--dp", p.toFixed(3));
+      if (legend) legend.classList.toggle("show", p > 0.86);
+    };
+    addEventListener("scroll", tick, { passive: true }); tick();
+  }
+  // Risk heatmap
+  const heat = document.getElementById("heat"), list = document.getElementById("risks");
+  if (heat && list) {
+    const items = [...list.children];
+    const pick = n => {
+      const same = list.dataset.on === n;
+      list.dataset.on = same ? "" : n;
+      list.classList.toggle("focus", !same);
+      items.forEach(li => li.classList.toggle("on", !same && li.dataset.r === n));
+      heat.querySelectorAll("button").forEach(b => b.classList.toggle("on", !same && b.dataset.r === n));
+    };
+    heat.addEventListener("click", e => { const b = e.target.closest("button[data-r]"); if (b) pick(b.dataset.r); });
+    items.forEach(li => li.addEventListener("click", () => pick(li.dataset.r)));
+  }
+})();
+</script>
+</body>
+</html>
